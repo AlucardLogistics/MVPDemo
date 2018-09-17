@@ -1,5 +1,7 @@
 package com.example.sadic.mvpdemo.data;
 
+import android.content.Context;
+
 import com.example.sadic.mvpdemo.data.database.DbHelper;
 import com.example.sadic.mvpdemo.data.database.IDbHelper;
 
@@ -7,13 +9,15 @@ public class DataManager implements IDataManager {
 
     IDbHelper idbHelper;
 
-    public DataManager() {
-        this.idbHelper = new DbHelper();
+    public DataManager(Context context) {
+        this.idbHelper = new DbHelper(context);
     }
 
-    @Override
-    public void createRow() {
 
+
+    @Override
+    public void createRow(String[] data) {
+        idbHelper.createRow(data);
     }
 
     @Override

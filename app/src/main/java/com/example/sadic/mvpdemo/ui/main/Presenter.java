@@ -13,7 +13,7 @@ public class Presenter implements IPresenter, IDataManager.OnResponseListener {
 
     public Presenter(MainActivity mainActivity) {
         iView = mainActivity;
-        iDataManager = new DataManager();
+        iDataManager = new DataManager(mainActivity);
     }
 
     @Override
@@ -21,7 +21,9 @@ public class Presenter implements IPresenter, IDataManager.OnResponseListener {
         switch (view.getId()) {
             case R.id.btLogin:
                 iView.showToast("MY TOAST");
+                String[] data = iView.bundleData();
                 iDataManager.readRow(this);
+                iDataManager.createRow(data);
                 break;
         }
     }
