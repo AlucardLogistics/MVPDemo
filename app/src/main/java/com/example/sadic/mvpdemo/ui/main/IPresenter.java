@@ -1,4 +1,4 @@
-package com.example.sadic.mvpdemo;
+package com.example.sadic.mvpdemo.ui.main;
 
 import android.view.View;
 

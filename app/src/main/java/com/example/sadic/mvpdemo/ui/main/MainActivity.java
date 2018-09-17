@@ -1,9 +1,11 @@
-package com.example.sadic.mvpdemo;
+package com.example.sadic.mvpdemo.ui.main;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
+
+import com.example.sadic.mvpdemo.R;
 
 public class MainActivity extends AppCompatActivity implements IView {
 

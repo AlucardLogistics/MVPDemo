@@ -1,4 +1,4 @@
-package com.example.sadic.mvpdemo;
+package com.example.sadic.mvpdemo.ui.main;
 
 public interface IView {
 
