@@ -22,8 +22,11 @@ public class Presenter implements IPresenter, IDataManager.OnResponseListener {
             case R.id.btLogin:
                 iView.showToast("MY TOAST");
                 String[] data = iView.bundleData();
-                iDataManager.readRow(this);
+                //iDataManager.readRow(this);
                 iDataManager.createRow(data);
+                break;
+            case R.id.btnGet:
+                iDataManager.readRow(this);
                 break;
         }
     }

@@ -2,6 +2,7 @@ package com.example.sadic.mvpdemo.data.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.example.sadic.mvpdemo.data.IDataManager;
@@ -29,7 +30,17 @@ public class DbHelper implements IDbHelper {
 
     @Override
     public void readRow(IDataManager.OnResponseListener listener) {
-        listener.getTodoNote("It's NinnYu!!! :D");
+
+        Cursor cursor = db.query(ToDoContract.ToDoEntry.TABLE_NAME,
+                null,null,null,null,null,null);
+
+        cursor.moveToLast();
+        int titleIndex = cursor.getColumnIndex(ToDoContract.ToDoEntry.TITLE);
+        int subtitleIndex = cursor.getColumnIndex(ToDoContract.ToDoEntry.SUBTITLE);
+
+        String result = cursor.getString(titleIndex) + "\n" + cursor.getString(subtitleIndex);
+
+        listener.getTodoNote(result);
     }
 
     @Override

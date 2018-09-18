@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sadic.mvpdemo.R;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements IView {
 
     EditText username, pw;
     IPresenter presenter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,9 @@ public class MainActivity extends AppCompatActivity implements IView {
 
     @Override
     public void showToast(String message) {
+        TextView show = findViewById(R.id.tvShow);
+        show.setText(message);
+
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
@@ -38,10 +43,8 @@ public class MainActivity extends AppCompatActivity implements IView {
     }
 
     public void handleMethod(View view) {
-        switch (view.getId()) {
-            case R.id.btLogin:
-                presenter.onButtonClicked(view);
-        }
+        presenter.onButtonClicked(view);
+
     }
 
 
