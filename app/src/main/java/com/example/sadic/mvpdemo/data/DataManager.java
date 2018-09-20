@@ -32,6 +32,6 @@ public class DataManager implements IDataManager {
 
     @Override
     public void deleteRow() {
-
+        idbHelper.deleteRow();
     }
 }

@@ -50,6 +50,11 @@ public class DbHelper implements IDbHelper {
 
     @Override
     public void deleteRow() {
-
+        // Define 'where' part of query.
+        String selection = ToDoContract.ToDoEntry.TITLE + " LIKE ?";
+        // Specify arguments in placeholder order.
+        String[] selectionArgs = { "mikki" };
+        // Issue SQL statement.
+        int deletedRows = db.delete(ToDoContract.ToDoEntry.TABLE_NAME, selection, selectionArgs);
     }
 }
